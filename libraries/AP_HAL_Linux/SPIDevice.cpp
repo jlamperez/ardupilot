@@ -93,6 +93,11 @@ SPIDesc SPIDeviceManager::_device[] = {
     SPIDesc("mpu9250",    0, 1, SPI_MODE_0, 8, SPI_CS_KERNEL,  1*MHZ, 11*MHZ),
     SPIDesc("ms5611",     0, 0, SPI_MODE_0, 8, SPI_CS_KERNEL,  1*KHZ, 10*MHZ),
 };
+#elif CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ZYNQBERRY_PXFMINI
+SPIDesc SPIDeviceManager::_device[] = {
+    SPIDesc("mpu9250", 1, 0, SPI_MODE_0, 8, SPI_CS_KERNEL, 1*MHZ, 20*MHZ),
+    SPIDesc("ms5611", 1 , 1, SPI_MODE_0, 8, SPI_CS_KERNEL, 1*MHZ, 20*MHZ),
+};
 #elif CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_BBBMINI
 SPIDesc SPIDeviceManager::_device[] = {
     SPIDesc("mpu9250",    2, 0, SPI_MODE_3, 8, SPI_CS_KERNEL,  1*MHZ, 11*MHZ),

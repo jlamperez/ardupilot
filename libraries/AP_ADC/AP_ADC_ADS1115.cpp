@@ -9,7 +9,11 @@
 #define ADS1115_ADDRESS_ADDR_SCL    0x4B // address pin tied to SCL pin
 
 #define ADS1115_I2C_ADDR            ADS1115_ADDRESS_ADDR_GND
+#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ZYNQBERRY_PXFMINI
+#define ADS1115_I2C_BUS             0
+#else
 #define ADS1115_I2C_BUS             1
+#endif
 
 #define ADS1115_RA_CONVERSION       0x00
 #define ADS1115_RA_CONFIG           0x01

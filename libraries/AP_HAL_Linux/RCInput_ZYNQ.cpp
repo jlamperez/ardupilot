@@ -16,7 +16,12 @@
 
 #include "GPIO.h"
 
-#define RCIN_ZYNQ_PULSE_INPUT_BASE  0x43c10000
+#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ZYNQBERRY_PXFMINI
+ #define RCIN_ZYNQ_PULSE_INPUT_BASE  0x43c00000
+#else
+ #define RCIN_ZYNQ_PULSE_INPUT_BASE  0x43c10000
+#endif
+
 
 extern const AP_HAL::HAL& hal;
 
@@ -28,7 +33,7 @@ void RCInput_ZYNQ::init()
     if (mem_fd == -1) {
         AP_HAL::panic("Unable to open /dev/mem");
     }
-    pulse_input = (volatile uint32_t*) mmap(0, 0x1000, PROT_READ|PROT_WRITE,
+    pulse_input = (volatile uint32_t*) mmap(0, 0x10000, PROT_READ|PROT_WRITE,
                                                       MAP_SHARED, mem_fd, RCIN_ZYNQ_PULSE_INPUT_BASE);
     close(mem_fd);
 

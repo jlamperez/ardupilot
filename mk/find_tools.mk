@@ -63,6 +63,16 @@ ZYNQ_LD      :=  arm-xilinx-linux-gnueabi-g++
 ZYNQ_GDB     :=  arm-xilinx-linux-gnueabi-gdb
 ZYNQ_OBJCOPY :=  arm-xilinx-linux-gnueabi-objcopy
 
+# toolchains for poky
+POKY_CXX     :=  arm-poky-linux-gnueabi-g++
+POKY_CC      :=  arm-poky-linux-gnueabi-gcc
+POKY_AS      :=  arm-poky-linux-gnueabi-gcc
+POKY_AR      :=  arm-poky-linux-gnueabi-ar
+POKY_LD      :=  arm-poky-linux-gnueabi-g++
+POKY_GDB     :=  arm-poky-linux-gnueabi-gdb
+POKY_OBJCOPY :=  arm-poky-linux-gnueabi-objcopy
+
+
 # enable ccache if installed
 CCACHE :=  $(call FIND_TOOL,ccache)
 export CCACHE

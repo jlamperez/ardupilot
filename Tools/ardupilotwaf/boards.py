@@ -395,6 +395,17 @@ class pxfmini(linux):
             CONFIG_HAL_BOARD_SUBTYPE = 'HAL_BOARD_SUBTYPE_LINUX_PXFMINI',
         )
 
+class zynqberry_pxfmini(linux):
+    toolchain = 'arm-poky-linux-gnueabi'
+
+    def configure_env(self, cfg, env):
+        super(zynqberry_pxfmini, self).configure_env(cfg, env)
+
+        env.DEFINES.update(
+            CONFIG_HAL_BOARD_SUBTYPE = 'HAL_BOARD_SUBTYPE_LINUX_ZYNQBERRY_PXFMINI',
+        )
+
+
 class aero(linux):
     def configure_env(self, cfg, env):
         super(aero, self).configure_env(cfg, env)
